@@ -25,10 +25,6 @@ pipeline {
         }
     
         stage('Build and Push Docker Image') {
-            environment {
-            DOCKER_IMAGE = "rgirhepu/ultimate-cicd:${BUILD_NUMBER}"
-            REGISTRY_CREDENTIALS = credentials('Docker_cred')
-            }
             steps {
                 script {
                     sh 'docker build -t ${DOCKER_IMAGE} .'
